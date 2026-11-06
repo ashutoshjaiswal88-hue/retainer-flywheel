@@ -23,7 +23,6 @@
 [hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0; background:var(--canvas); color:var(--ink); font-family:var(--f-ui); overflow:hidden; -webkit-font-smoothing:antialiased}
-#vp,#vp *{-webkit-user-select:none; user-select:none}
 #vp{position:fixed; inset:0; overflow:hidden; cursor:grab; touch-action:none;
   background-color:var(--canvas); background-image:radial-gradient(var(--dot) 1.4px, transparent 1.5px)}
 #vp.drag{cursor:grabbing}
@@ -629,7 +628,6 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   vp.addEventListener('pointerdown',function(e){
     if(e.target.closest('a')) return;
     down={x:e.clientX,y:e.clientY,el:e.target.closest('[data-zoom],[data-yt]'),moved:false};
-    if(e.button===0) e.preventDefault(); var s=window.getSelection&&window.getSelection(); if(s) s.removeAllRanges();
     vp.setPointerCapture(e.pointerId); pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(anim){cancelAnimationFrame(anim);anim=null}
     vp.classList.add('drag'); last={x:e.clientX,y:e.clientY};
