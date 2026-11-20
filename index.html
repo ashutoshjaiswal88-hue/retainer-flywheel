@@ -136,6 +136,24 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 .aside b{display:block; font-size:18px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px}
 .num{font-size:150px; font-weight:900; line-height:.9; letter-spacing:-.03em}
 
+/* the numbers */
+.nbox{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:12px 28px; display:flex; align-items:center; justify-content:space-between; gap:20px}
+.nbox .l{display:flex; flex-direction:column; gap:4px; font-size:28px; font-weight:900; line-height:1.1}
+.nbox .l small{font-size:20px; font-weight:700; color:var(--muted); line-height:1.25}
+.nbox .n{font-size:64px; font-weight:900; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums; white-space:nowrap}
+.nbox.win{background:#E6F6EC; border-color:var(--grn)}
+.nbox.win .n{color:var(--grn)}
+.nbox.edit{background:#FFFBD6; border-style:dashed}
+.nbox.roas{background:var(--ink); border-color:var(--ink); color:#fff}
+.nbox.roas .l small{color:#C9CED8}
+.money{display:flex; align-items:baseline; font-size:64px; font-weight:900; white-space:nowrap}
+.money input{font:900 64px var(--f-ui); color:var(--ink); background:transparent; border:0; border-bottom:4px dashed var(--ink); padding:0 4px; text-align:right; outline:none; cursor:text; font-variant-numeric:tabular-nums}
+.money input:focus{border-bottom-style:solid; background:#fff}
+.money .u{font-size:28px; margin-left:10px; color:var(--muted)}
+.files{display:flex; flex-wrap:wrap; gap:6px; max-width:180px}
+.files i{width:20px; height:26px; border-radius:3px 8px 3px 3px; background:var(--grn)}
+.files i.half{opacity:.3}
+
 /* finale */
 .frame.night{background:var(--night); border-color:var(--night)}
 .night .h{color:#fff}
@@ -470,6 +488,38 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   <div class="aside" style="left:60px;top:720px;width:760px"><b>After the consult</b>If they need more time, intake can follow up. We recommend you or your associate make that call.</div>
 </section>
 
+<!-- F9 THE NUMBERS -->
+<section class="frame" data-stop="The numbers" style="left:11200px;top:1340px;width:2400px;height:1440px">
+  <div class="ftitle">The numbers</div>
+  <svg class="wires" width="2400" height="1440">
+    <path data-c="680,400,680,464,v"/><path data-c="680,584,680,648,v"/><path data-c="680,768,680,832,v"/><path class="yes" data-c="680,952,680,1016,v" marker-end="url(#ahg)"/>
+    <path data-c="980,1076,1440,1076,h"/>
+    <path class="dash" data-c="1890,400,1890,1016,v"/>
+    <path data-c="1890,1136,1890,1200,v"/>
+  </svg>
+  <div class="tag" style="left:60px;top:56px">The numbers · Ontario</div>
+  <div class="h" style="left:60px;top:124px;width:2280px;font-size:52px"><span data-o="spendDay">$60</span> a day. <span data-o="signed">3–4</span> signed retainers a month, on the conservative side.</div>
+  <p class="sub" style="left:60px;top:196px;width:2280px;font-size:26px">One month of ad spend, followed down to signed retainers. Change the yellow fields to fit your firm. All figures in CAD.</p>
+
+  <div class="nbox edit" style="left:60px;top:280px;width:1240px;height:120px"><span class="l">Ad spend<small data-o="spendMo">$1,800 a month</small></span><label class="money">$<input id="inSpend" inputmode="numeric" value="60" aria-label="Ad spend per day"><span class="u">a day</span></label></div>
+  <div class="nbox" style="left:140px;top:464px;width:1080px;height:120px"><span class="l">Leads<small>people in Ontario fill in the form</small></span><span class="n" data-o="leads">51</span></div>
+  <div class="nbox" style="left:220px;top:648px;width:920px;height:120px"><span class="l">Booked consults<small>qualified and on your calendar</small></span><span class="n" data-o="booked">26</span></div>
+  <div class="nbox" style="left:300px;top:832px;width:760px;height:120px"><span class="l">Show up<small>sit down with you</small></span><span class="n" data-o="shows">18</span></div>
+  <div class="nbox win" style="left:380px;top:1016px;width:600px;height:120px"><span class="l">Signed<small>new retainers</small></span><span class="files" data-o="files"></span><span class="n" data-o="signed">3–4</span></div>
+  <div class="wl" style="left:680px;top:432px">$35 per lead</div>
+  <div class="wl" style="left:680px;top:616px">50% booked</div>
+  <div class="wl" style="left:680px;top:800px">70% show up</div>
+  <div class="wl yes" style="left:680px;top:984px">20% sign</div>
+
+  <div class="nbox edit" style="left:1440px;top:280px;width:900px;height:120px"><span class="l" style="width:330px">Average case value<small>if it goes through to resolution</small></span><label class="money">$<input id="inValue" inputmode="numeric" value="5,000" aria-label="Average case value"></label></div>
+  <div class="hand" style="left:1940px;top:560px;width:380px">what one signed file is worth to you</div>
+  <div class="wl" style="left:1210px;top:1076px">× case value</div>
+  <div class="nbox" style="left:1440px;top:1016px;width:900px;height:120px"><span class="l">Revenue<small>every month</small></span><span class="n" data-o="rev" style="font-size:54px">$15,000–$20,000</span></div>
+  <div class="nbox roas" style="left:1440px;top:1200px;width:900px;height:180px"><span class="l">Return on ad spend<small data-o="cps">≈ $500 in ad spend per signed retainer</small></span><span class="n" data-o="roas">8.3x–11.1x</span></div>
+
+  <div class="aside" style="left:60px;top:1200px;width:1240px;height:180px;font-size:22px"><b>Conservative rates used</b>$35 per lead · 50% of leads qualified and booked · 70% of booked consults show up · 20% sign a retainer. Case value assumes the matter goes through to resolution.</div>
+</section>
+
 <!-- F8 DONE FOR YOU -->
 <section class="frame night" data-stop="Done for you" style="left:14120px;top:200px;width:1700px;height:1000px">
   <div class="ftitle">Done for you</div>
@@ -501,7 +551,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 <div class="ui" id="hint">← → to move · drag to pan · ctrl + scroll to zoom · click images to enlarge</div>
 <div class="ui pill" id="nav">
   <button class="btn" id="prev" aria-label="Previous stop">←</button>
-  <div class="lab"><span id="stopname">Start here</span><small id="stopnum">1 / 12</small></div>
+  <div class="lab"><span id="stopname">Start here</span><small id="stopnum">1 / 13</small></div>
   <button class="btn" id="next" aria-label="Next stop">→</button>
   <button class="btn txt" id="all">Overview</button>
 </div>
@@ -517,6 +567,35 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 </div>
 
 <script>
+// the numbers: conservative rates, recomputed from the two editable fields
+(function(){
+  var CPL=35, BOOK=.5, SHOW=.7, SIGN=.2, DAYS=30;
+  var inS=document.getElementById('inSpend'), inV=document.getElementById('inValue');
+  function num(el){ return +(el.value.replace(/[^\d.]/g,''))||0; }
+  function $(n){ return '$'+Math.round(n).toLocaleString('en-CA'); }
+  function set(k,t){ document.querySelectorAll('[data-o="'+k+'"]').forEach(function(el){ el.textContent=t; }); }
+  function range(a,b,f){ return a===b ? f(a) : f(a)+'–'+f(b); }
+  function calc(){
+    [inS,inV].forEach(function(el){ el.style.width=(Math.max(1,el.value.length)+.5)+"ch"; });
+    var day=num(inS), val=num(inV), mo=day*DAYS;
+    var leads=mo/CPL, booked=leads*BOOK, shows=booked*SHOW, signed=shows*SIGN;
+    var lo=Math.floor(signed+1e-9), hi=Math.ceil(signed-1e-9);
+    set('spendDay',$(day)); set('spendMo',$(mo)+' a month');
+    set('leads',Math.round(leads)); set('booked',Math.round(booked)); set('shows',Math.round(shows));
+    set('signed',range(lo,hi,String));
+    set('rev',range(lo*val,hi*val,$));
+    set('roas',mo ? range(lo*val/mo,hi*val/mo,function(x){return x.toFixed(1)+'x'}) : '–');
+    set('cps',signed ? '≈ '+$(mo/signed)+' in ad spend per signed retainer' : '');
+    var f=document.querySelector('[data-o="files"]'), n=Math.min(hi,20), h='';
+    for(var i=0;i<n;i++) h+='<i'+(i===n-1&&hi>signed+1e-9?' class="half"':'')+'></i>';
+    f.innerHTML=h;
+  }
+  [inS,inV].forEach(function(el){
+    el.addEventListener('input',calc);
+    el.addEventListener('blur',function(){ var v=num(el); el.value=v?Math.round(v).toLocaleString('en-CA'):''; calc(); });
+  });
+  calc();
+})();
 (function(){
   document.querySelectorAll('path[data-c]').forEach(function(p){
     var a=p.getAttribute('data-c').split(','), x1=+a[0], y1=+a[1], x2=+a[2], y2=+a[3], d;
@@ -543,6 +622,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
     ['Layer 5 · Booked + briefed',byName['Booked + briefed']],
     ['If they\'re not ready yet',byName['Branded guide']],
     ['Your consult',byName['Your consult']],
+    ['The numbers',byName['The numbers']],
     ['Done for you',byName['Done for you']],
     ['The whole flywheel',{x:-80,y:60,w:15980,h:2900}]
   ];
@@ -608,6 +688,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   document.getElementById('zout').onclick=function(){zoomAt(.8,vp.clientWidth/2,vp.clientHeight/2)};
   window.addEventListener('keydown',function(e){
     if(!lb.hidden){ if(e.key==='Escape') closeLB(); return; }
+    if(e.target.tagName==='INPUT'){ if(e.key==='Enter'||e.key==='Escape') e.target.blur(); return; }
     if(e.target.closest && e.target.closest('button') && (e.key===' '||e.key==='Enter')) return;
     if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(idx+1)}
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(idx-1)}
@@ -626,7 +707,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 
   var pts=new Map(), last=null, pinchD=0, down=null;
   vp.addEventListener('pointerdown',function(e){
-    if(e.target.closest('a')) return;
+    if(e.target.closest('a,input')) return;
     down={x:e.clientX,y:e.clientY,el:e.target.closest('[data-zoom],[data-yt]'),moved:false};
     vp.setPointerCapture(e.pointerId); pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(anim){cancelAnimationFrame(anim);anim=null}
