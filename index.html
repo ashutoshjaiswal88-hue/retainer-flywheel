@@ -154,6 +154,24 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 .files i{width:20px; height:26px; border-radius:3px 8px 3px 3px; background:var(--grn)}
 .files i.half{opacity:.3}
 
+.wl.inp{display:flex; align-items:center; background:#FFFBD6; border-style:dashed; border-width:3px; padding:6px 16px; cursor:text}
+.wl.inp input{font:800 22px var(--f-ui); color:var(--ink); border:0; border-bottom:2px dashed var(--ink); background:transparent; text-align:center; outline:none; padding:0 2px}
+.chips{display:flex; gap:8px; align-items:center; font-size:18px; font-weight:800; color:var(--muted)}
+.chips span{margin-right:4px}
+.chips button{font:800 20px var(--f-ui); color:var(--ink); border:2px solid var(--wire); background:#fff; border-radius:999px; padding:5px 14px; cursor:pointer}
+.chips button.on{background:var(--ink); color:#fff}
+.vs{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:24px 28px; display:flex; flex-direction:column; gap:18px}
+.vs h6{margin:0; font-size:28px; font-weight:900}
+.vs .row{display:grid; grid-template-columns:160px 1fr; align-items:center; gap:16px; font-size:22px; font-weight:800}
+.vs .track{position:relative; height:60px; background:#F1F2F5; border-radius:10px; overflow:hidden}
+.vs .fill{position:absolute; left:0; top:0; bottom:0; border-radius:10px}
+.vs .fill.spend{background:#F2B8B3}
+.vs .fill.lo{background:#7FCB9C}
+.vs .fill.hi{background:#C8EBD5}
+.vs .amt{position:absolute; left:16px; top:50%; transform:translateY(-50%); font-size:28px; font-weight:900; white-space:nowrap}
+.vs .net{display:flex; justify-content:space-between; align-items:baseline; border-top:2px solid #EEF0F3; padding-top:14px; font-size:24px; font-weight:800}
+.vs .net b{font-size:40px; font-weight:900; color:var(--grn)}
+
 /* finale */
 .frame.night{background:var(--night); border-color:var(--night)}
 .night .h{color:#fff}
@@ -489,35 +507,46 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 </section>
 
 <!-- F9 THE NUMBERS -->
-<section class="frame" data-stop="The numbers" style="left:11200px;top:1340px;width:2400px;height:1440px">
+<section class="frame" data-stop="The numbers" style="left:6800px;top:3080px;width:2400px;height:1800px">
   <div class="ftitle">The numbers</div>
-  <svg class="wires" width="2400" height="1440">
-    <path data-c="680,400,680,464,v"/><path data-c="680,584,680,648,v"/><path data-c="680,768,680,832,v"/><path class="yes" data-c="680,952,680,1016,v" marker-end="url(#ahg)"/>
-    <path data-c="980,1076,1440,1076,h"/>
-    <path class="dash" data-c="1890,400,1890,1016,v"/>
-    <path data-c="1890,1136,1890,1200,v"/>
+  <svg class="wires" width="2400" height="1800">
+    <path data-c="680,400,680,520,v"/><path data-c="680,640,680,704,v"/><path data-c="680,824,680,888,v"/><path class="yes" data-c="680,1008,680,1072,v" marker-end="url(#ahg)"/>
+    <path data-c="980,1132,1440,1132,h"/>
+    <path class="dash" data-c="2300,400,2300,1072,v"/>
+    <path data-c="1890,1192,1890,1256,v"/>
   </svg>
-  <div class="tag" style="left:60px;top:56px">The numbers · Ontario</div>
-  <div class="h" style="left:60px;top:124px;width:2280px;font-size:52px"><span data-o="spendDay">$60</span> a day. <span data-o="signed">3–4</span> signed retainers a month, on the conservative side.</div>
+  <div class="tag" style="left:60px;top:56px">The numbers</div>
+  <div class="h" style="left:60px;top:124px;width:2280px;font-size:52px"><span data-o="spendDay">$45</span> a day. <span data-o="signed">2–3</span> signed retainers a month, on the conservative side.</div>
   <p class="sub" style="left:60px;top:196px;width:2280px;font-size:26px">One month of ad spend, followed down to signed retainers. Change the yellow fields to fit your firm. All figures in CAD.</p>
 
-  <div class="nbox edit" style="left:60px;top:280px;width:1240px;height:120px"><span class="l">Ad spend<small data-o="spendMo">$1,800 a month</small></span><label class="money">$<input id="inSpend" inputmode="numeric" value="60" aria-label="Ad spend per day"><span class="u">a day</span></label></div>
-  <div class="nbox" style="left:140px;top:464px;width:1080px;height:120px"><span class="l">Leads<small>people in Ontario fill in the form</small></span><span class="n" data-o="leads">51</span></div>
-  <div class="nbox" style="left:220px;top:648px;width:920px;height:120px"><span class="l">Booked consults<small>qualified and on your calendar</small></span><span class="n" data-o="booked">26</span></div>
-  <div class="nbox" style="left:300px;top:832px;width:760px;height:120px"><span class="l">Show up<small>sit down with you</small></span><span class="n" data-o="shows">18</span></div>
-  <div class="nbox win" style="left:380px;top:1016px;width:600px;height:120px"><span class="l">Signed<small>new retainers</small></span><span class="files" data-o="files"></span><span class="n" data-o="signed">3–4</span></div>
-  <div class="wl" style="left:680px;top:432px">$35 per lead</div>
-  <div class="wl" style="left:680px;top:616px">50% booked</div>
-  <div class="wl" style="left:680px;top:800px">70% show up</div>
-  <div class="wl yes" style="left:680px;top:984px">20% sign</div>
+  <div class="nbox edit" style="left:60px;top:280px;width:1240px;height:120px"><span class="l">Ad spend<small data-o="spendMo">$1,350 a month</small></span><label class="money">$<input id="inSpend" inputmode="numeric" value="60" aria-label="Ad spend per day"><span class="u">a day</span></label></div>
+  <label class="wl inp" style="left:680px;top:460px">$<input id="inCpl" inputmode="numeric" value="35" aria-label="Cost per lead">&nbsp;per lead</label>
+  <div class="chips" style="left:800px;top:440px"><span>Quick pick</span><button type="button" data-cpl="20">$20</button><button type="button" data-cpl="25">$25</button><button type="button" data-cpl="30">$30</button><button type="button" data-cpl="35">$35</button></div>
+  <div class="nbox" style="left:140px;top:520px;width:1080px;height:120px"><span class="l">Leads<small>people in your area fill in the form</small></span><span class="n" data-o="leads">39</span></div>
+  <div class="nbox" style="left:220px;top:704px;width:920px;height:120px"><span class="l">Booked consults<small>qualified and on your calendar</small></span><span class="n" data-o="booked">19</span></div>
+  <div class="nbox" style="left:300px;top:888px;width:760px;height:120px"><span class="l">Show up<small>sit down with you</small></span><span class="n" data-o="shows">13</span></div>
+  <div class="nbox win" style="left:380px;top:1072px;width:600px;height:120px"><span class="l">Signed<small>new retainers</small></span><span class="files" data-o="files"></span><span class="n" data-o="signed">2–3</span></div>
+  <div class="wl" style="left:680px;top:672px">50% booked</div>
+  <div class="wl" style="left:680px;top:856px">70% show up</div>
+  <div class="wl yes" style="left:680px;top:1040px">20% sign</div>
 
   <div class="nbox edit" style="left:1440px;top:280px;width:900px;height:120px"><span class="l" style="width:330px">Average case value<small>if it goes through to resolution</small></span><label class="money">$<input id="inValue" inputmode="numeric" value="5,000" aria-label="Average case value"></label></div>
-  <div class="hand" style="left:1940px;top:560px;width:380px">what one signed file is worth to you</div>
-  <div class="wl" style="left:1210px;top:1076px">× case value</div>
-  <div class="nbox" style="left:1440px;top:1016px;width:900px;height:120px"><span class="l">Revenue<small>every month</small></span><span class="n" data-o="rev" style="font-size:54px">$15,000–$20,000</span></div>
-  <div class="nbox roas" style="left:1440px;top:1200px;width:900px;height:180px"><span class="l">Return on ad spend<small data-o="cps">≈ $500 in ad spend per signed retainer</small></span><span class="n" data-o="roas">8.3x–11.1x</span></div>
 
-  <div class="aside" style="left:60px;top:1200px;width:1240px;height:180px;font-size:22px"><b>Conservative rates used</b>$35 per lead · 50% of leads qualified and booked · 70% of booked consults show up · 20% sign a retainer. Case value assumes the matter goes through to resolution.</div>
+  <div class="vs" style="left:1440px;top:480px;width:800px">
+    <h6>Your month: what goes in, what comes back</h6>
+    <div class="row"><span>You spend</span><div class="track"><i class="fill spend" data-w="spend"></i><span class="amt" data-o="spendMoAmt">$1,350</span></div></div>
+    <div class="row"><span>Comes back</span><div class="track"><i class="fill hi" data-w="hi"></i><i class="fill lo" data-w="lo"></i><span class="amt" data-o="rev">$6,000–$9,000</span></div></div>
+    <div class="net"><span>Left after ad spend</span><b data-o="net">$4,650–$7,650</b></div>
+  </div>
+
+  <div class="wl" style="left:1210px;top:1132px">× case value</div>
+  <div class="nbox" style="left:1440px;top:1072px;width:900px;height:120px"><span class="l">Revenue<small>every month</small></span><span class="n" data-o="rev" style="font-size:54px">$6,000–$9,000</span></div>
+  <div class="nbox roas" style="left:1440px;top:1256px;width:900px;height:180px"><span class="l">Return on ad spend<small data-o="cps">≈ $563 in ad spend per signed retainer</small></span><span class="n" data-o="roas">4.4x–6.7x</span></div>
+
+  <div class="aside" style="left:60px;top:1256px;width:1240px;height:180px;font-size:22px"><b>Conservative rates used</b><span data-o="cplTxt">$35</span> per lead · 50% of leads qualified and booked · 70% of booked consults show up · 20% sign a retainer. Case value assumes the matter goes through to resolution.</div>
+
+  <div class="st g" style="left:60px;top:1500px;width:2280px;height:230px;transform:rotate(-.4deg);font-size:34px;font-weight:800">Every one of these files is handed to you. No back-and-forth, no chasing, no calls with people who were never going to hire you.
+    <small style="font-size:26px;opacity:.85">Our intake team takes the <span data-o="unq">20</span> calls with unqualified people this month, not you. At 15–20 minutes each, that's about <span data-o="hrs">5–7 billable hours</span> back in your month.</small></div>
 </section>
 
 <!-- F8 DONE FOR YOU -->
@@ -567,33 +596,44 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 </div>
 
 <script>
-// the numbers: conservative rates, recomputed from the two editable fields
+// the numbers: conservative rates, recomputed from the editable fields
 (function(){
-  var CPL=35, BOOK=.5, SHOW=.7, SIGN=.2, DAYS=30;
-  var inS=document.getElementById('inSpend'), inV=document.getElementById('inValue');
+  var BOOK=.5, SHOW=.7, SIGN=.2, DAYS=30;
+  var inS=document.getElementById('inSpend'), inV=document.getElementById('inValue'), inC=document.getElementById('inCpl');
+  var chips=[].slice.call(document.querySelectorAll('[data-cpl]'));
   function num(el){ return +(el.value.replace(/[^\d.]/g,''))||0; }
   function $(n){ return '$'+Math.round(n).toLocaleString('en-CA'); }
   function set(k,t){ document.querySelectorAll('[data-o="'+k+'"]').forEach(function(el){ el.textContent=t; }); }
   function range(a,b,f){ return a===b ? f(a) : f(a)+'–'+f(b); }
   function calc(){
-    [inS,inV].forEach(function(el){ el.style.width=(Math.max(1,el.value.length)+.5)+"ch"; });
-    var day=num(inS), val=num(inV), mo=day*DAYS;
-    var leads=mo/CPL, booked=leads*BOOK, shows=booked*SHOW, signed=shows*SIGN;
+    [inS,inV,inC].forEach(function(el){ el.style.width=(Math.max(1,el.value.length)+.5)+"ch"; });
+    var day=num(inS), val=num(inV), cpl=num(inC)||35, mo=day*DAYS;
+    var leads=mo/cpl, booked=leads*BOOK, shows=booked*SHOW, signed=shows*SIGN;
     var lo=Math.floor(signed+1e-9), hi=Math.ceil(signed-1e-9);
-    set('spendDay',$(day)); set('spendMo',$(mo)+' a month');
+    set('spendDay',$(day)); set('spendMo',$(mo)+' a month'); set('spendMoAmt',$(mo)); set('cplTxt',$(cpl));
     set('leads',Math.round(leads)); set('booked',Math.round(booked)); set('shows',Math.round(shows));
     set('signed',range(lo,hi,String));
     set('rev',range(lo*val,hi*val,$));
+    set('net',range(lo*val-mo,hi*val-mo,function(x){ return x<0 ? '−'+$(-x) : $(x); }));
     set('roas',mo ? range(lo*val/mo,hi*val/mo,function(x){return x.toFixed(1)+'x'}) : '–');
     set('cps',signed ? '≈ '+$(mo/signed)+' in ad spend per signed retainer' : '');
+    var unq=Math.round(leads)-Math.round(booked);
+    set('unq',unq);
+    set('hrs',range(Math.round(unq*15/60),Math.round(unq*20/60),String)+' billable hours');
+    var max=Math.max(mo,hi*val)||1;
+    document.querySelector('[data-w="spend"]').style.width=(mo/max*100)+'%';
+    document.querySelector('[data-w="lo"]').style.width=(lo*val/max*100)+'%';
+    document.querySelector('[data-w="hi"]').style.width=(hi*val/max*100)+'%';
+    chips.forEach(function(b){ b.classList.toggle('on', +b.dataset.cpl===cpl); });
     var f=document.querySelector('[data-o="files"]'), n=Math.min(hi,20), h='';
     for(var i=0;i<n;i++) h+='<i'+(i===n-1&&hi>signed+1e-9?' class="half"':'')+'></i>';
     f.innerHTML=h;
   }
-  [inS,inV].forEach(function(el){
+  [inS,inV,inC].forEach(function(el){
     el.addEventListener('input',calc);
     el.addEventListener('blur',function(){ var v=num(el); el.value=v?Math.round(v).toLocaleString('en-CA'):''; calc(); });
   });
+  chips.forEach(function(b){ b.addEventListener('click',function(){ inC.value=b.dataset.cpl; calc(); }); });
   calc();
 })();
 (function(){
@@ -624,7 +664,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
     ['Your consult',byName['Your consult']],
     ['The numbers',byName['The numbers']],
     ['Done for you',byName['Done for you']],
-    ['The whole flywheel',{x:-80,y:60,w:15980,h:2900}]
+    ['The whole flywheel',{x:-80,y:60,w:15980,h:4860}]
   ];
   var idx=0;
   function apply(){
@@ -707,7 +747,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 
   var pts=new Map(), last=null, pinchD=0, down=null;
   vp.addEventListener('pointerdown',function(e){
-    if(e.target.closest('a,input')) return;
+    if(e.target.closest('a,input,button')) return;
     down={x:e.clientX,y:e.clientY,el:e.target.closest('[data-zoom],[data-yt]'),moved:false};
     vp.setPointerCapture(e.pointerId); pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(anim){cancelAnimationFrame(anim);anim=null}
