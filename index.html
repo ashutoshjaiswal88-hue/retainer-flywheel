@@ -172,6 +172,19 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 .vs .net{display:flex; justify-content:space-between; align-items:baseline; border-top:2px solid #EEF0F3; padding-top:14px; font-size:24px; font-weight:800}
 .vs .net b{font-size:40px; font-weight:900; color:var(--grn)}
 
+.tl-axis{height:8px; background:var(--ink); border-radius:4px}
+.tl-dot{width:36px; height:36px; border-radius:50%; background:#fff; border:7px solid var(--ink)}
+.tl-dot.g{border-color:var(--grn)}
+.tcard{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; gap:12px}
+.tcard .k{font-size:17px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.tcard h5{margin:0; font-size:32px; font-weight:900; line-height:1.1; text-wrap:balance}
+.tcard p{font-size:23px; font-weight:600; color:#4A505C; line-height:1.4}
+.tcard ul.chk{font-size:22px; gap:8px; font-weight:700}
+.tcard.win{background:#E6F6EC; border-color:var(--grn)}
+.tcard.dark{background:var(--ink); border-color:var(--ink); color:#fff}
+.tcard.dark p{color:#D5D9E1}
+.tcard.dark .k{color:var(--y)}
+
 /* finale */
 .frame.night{background:var(--night); border-color:var(--night)}
 .night .h{color:#fff}
@@ -248,6 +261,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   <path class="dash" data-c="10400,2050,11000,1200,v"/>
   <path data-c="12100,700,12460,700,h"/>
   <path class="yes" data-c="13760,700,14120,700,h" marker-end="url(#ahg)"/>
+  <path data-c="9200,3980,9560,3680,h"/>
   <path d="M14970 1200 L14970 2780 Q14970 2860 14890 2860 L2590 2860 Q2510 2860 2510 2780 L2510 1214" marker-end="url(#ah)" style="stroke-width:5"/>
 </svg>
 <div class="wl wrap" style="position:absolute;left:1380px;top:610px;width:300px">It starts with an ad</div>
@@ -526,9 +540,9 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   <div class="nbox" style="left:220px;top:704px;width:920px;height:120px"><span class="l">Booked consults<small>qualified and on your calendar</small></span><span class="n" data-o="booked">19</span></div>
   <div class="nbox" style="left:300px;top:888px;width:760px;height:120px"><span class="l">Show up<small>sit down with you</small></span><span class="n" data-o="shows">13</span></div>
   <div class="nbox win" style="left:380px;top:1072px;width:600px;height:120px"><span class="l">Signed<small>new retainers</small></span><span class="files" data-o="files"></span><span class="n" data-o="signed">2–3</span></div>
-  <div class="wl" style="left:680px;top:672px">50% booked</div>
-  <div class="wl" style="left:680px;top:856px">70% show up</div>
-  <div class="wl yes" style="left:680px;top:1040px">20% sign</div>
+  <label class="wl inp" style="left:680px;top:672px"><input id="inBook" inputmode="numeric" value="50" aria-label="Booked rate">%&nbsp;booked</label>
+  <label class="wl inp" style="left:680px;top:856px"><input id="inShow" inputmode="numeric" value="70" aria-label="Show-up rate">%&nbsp;show up</label>
+  <label class="wl inp yes" style="left:680px;top:1040px"><input id="inSign" inputmode="numeric" value="20" aria-label="Sign rate">%&nbsp;sign</label>
 
   <div class="nbox edit" style="left:1440px;top:280px;width:900px;height:120px"><span class="l" style="width:330px">Average case value<small>if it goes through to resolution</small></span><label class="money">$<input id="inValue" inputmode="numeric" value="5,000" aria-label="Average case value"></label></div>
 
@@ -543,10 +557,52 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
   <div class="nbox" style="left:1440px;top:1072px;width:900px;height:120px"><span class="l">Revenue<small>every month</small></span><span class="n" data-o="rev" style="font-size:54px">$6,000–$9,000</span></div>
   <div class="nbox roas" style="left:1440px;top:1256px;width:900px;height:180px"><span class="l">Return on ad spend<small data-o="cps">≈ $563 in ad spend per signed retainer</small></span><span class="n" data-o="roas">4.4x–6.7x</span></div>
 
-  <div class="aside" style="left:60px;top:1256px;width:1240px;height:180px;font-size:22px"><b>Conservative rates used</b><span data-o="cplTxt">$35</span> per lead · 50% of leads qualified and booked · 70% of booked consults show up · 20% sign a retainer. Case value assumes the matter goes through to resolution.</div>
+  <div class="aside" style="left:60px;top:1256px;width:1240px;height:180px;font-size:22px"><b>Rates used</b><span data-o="cplTxt">$35</span> per lead · <span data-o="bookTxt">50%</span> of leads qualified and booked · <span data-o="showTxt">70%</span> of booked consults show up · <span data-o="signTxt">20%</span> sign a retainer. Case value assumes the matter goes through to resolution.</div>
 
   <div class="st g" style="left:60px;top:1500px;width:2280px;height:230px;transform:rotate(-.4deg);font-size:34px;font-weight:800">Every one of these files is handed to you. No back-and-forth, no chasing, no calls with people who were never going to hire you.
     <small style="font-size:26px;opacity:.85">Our intake team takes the <span data-o="unq">20</span> calls with unqualified people this month, not you. At 15–20 minutes each, that's about <span data-o="hrs">5–7 billable hours</span> back in your month.</small></div>
+</section>
+
+<!-- F10 WHAT HAPPENS NEXT -->
+<section class="frame" data-stop="What happens next" style="left:9560px;top:3080px;width:3700px;height:1200px">
+  <div class="ftitle">What happens next</div>
+  <div class="tag" style="left:80px;top:56px">What happens next</div>
+  <div class="h" style="left:80px;top:124px;width:3500px;font-size:52px">From yes to signed cases: your first 90 days</div>
+
+  <div class="tl-axis" style="left:80px;top:426px;width:3530px"></div>
+
+  <div class="small" style="left:80px;top:350px">Day 0</div>
+  <i class="tl-dot" style="left:80px;top:412px"></i>
+  <div class="tcard" style="left:80px;top:480px;width:470px;height:420px"><span class="k">Step 1</span><h5>Onboarding call</h5><p>We walk you through the plan and sign the agreement.</p></div>
+
+  <div class="small" style="left:590px;top:350px">The next 48 hours</div>
+  <i class="tl-dot" style="left:590px;top:412px"></i>
+  <div class="tcard" style="left:590px;top:480px;width:470px;height:420px"><span class="k">Step 2</span><h5>We build everything</h5><ul class="chk"><li>Ad creatives</li><li>Ad copywriting</li><li>Your landing page</li><li>Intake specialists trained on your brand</li><li>Automations</li><li>SMS + email follow-up sequences</li></ul></div>
+
+  <div class="small" style="left:1100px;top:350px">About 48 hours after onboarding</div>
+  <i class="tl-dot" style="left:1100px;top:412px"></i>
+  <div class="tcard" style="left:1100px;top:480px;width:470px;height:420px"><span class="k">Step 3</span><h5>Your campaign goes live</h5><p>Ads start running in your area. Our intake team is on from the first form.</p></div>
+
+  <div class="small" style="left:1610px;top:350px">48–72 hours after launch</div>
+  <i class="tl-dot" style="left:1610px;top:412px"></i>
+  <div class="tcard" style="left:1610px;top:480px;width:470px;height:420px"><span class="k">Step 4</span><h5>First qualified consult booked</h5><p>On your calendar, with the case brief and call recording.</p></div>
+
+  <div class="small" style="left:2120px;top:350px;color:#1E8A4F">Your first signed case</div>
+  <i class="tl-dot g" style="left:2120px;top:412px"></i>
+  <div class="tcard win" style="left:2120px;top:480px;width:470px;height:420px"><span class="k">Step 5</span><h5>Our first monthly fee is due</h5><p>Not before. You pay nothing until you sign your first defence case from our system.</p></div>
+
+  <div class="small" style="left:2630px;top:350px">30 days after launch</div>
+  <i class="tl-dot" style="left:2630px;top:412px"></i>
+  <div class="tcard" style="left:2630px;top:480px;width:470px;height:420px"><span class="k">Step 6</span><h5>Month 2 fee</h5><p>Due 30 days after your campaign start date. Month 3 follows the same way.</p></div>
+
+  <div class="small" style="left:3140px;top:350px">Day 90</div>
+  <i class="tl-dot" style="left:3140px;top:412px"></i>
+  <div class="tcard dark" style="left:3140px;top:480px;width:470px;height:420px"><span class="k">The guarantee</span><h5>$45,000 in signed defence case value</h5><p>Within 90 days, or we keep working for free until you get there.*</p></div>
+
+  <div class="st b" style="left:80px;top:950px;width:1490px;height:110px;flex-direction:row;align-items:center;justify-content:flex-start;gap:18px"><b>Month 1</b><span style="font-weight:600">The campaign learns and optimises.</span></div>
+  <div class="st g" style="left:1610px;top:950px;width:2000px;height:110px;flex-direction:row;align-items:center;justify-content:flex-start;gap:18px"><b>Months 2–3</b><span style="font-weight:600">Most of your signed cases come in.</span></div>
+
+  <div class="cap" style="left:80px;top:1100px;width:3530px">* The $45,000 in 90 days guarantee applies only when your firm commits to the agreed monthly ad spend.</div>
 </section>
 
 <!-- F8 DONE FOR YOU -->
@@ -580,7 +636,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 <div class="ui" id="hint">← → to move · drag to pan · ctrl + scroll to zoom · click images to enlarge</div>
 <div class="ui pill" id="nav">
   <button class="btn" id="prev" aria-label="Previous stop">←</button>
-  <div class="lab"><span id="stopname">Start here</span><small id="stopnum">1 / 13</small></div>
+  <div class="lab"><span id="stopname">Start here</span><small id="stopnum">1 / 14</small></div>
   <button class="btn" id="next" aria-label="Next stop">→</button>
   <button class="btn txt" id="all">Overview</button>
 </div>
@@ -598,16 +654,18 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
 <script>
 // the numbers: conservative rates, recomputed from the editable fields
 (function(){
-  var BOOK=.5, SHOW=.7, SIGN=.2, DAYS=30;
-  var inS=document.getElementById('inSpend'), inV=document.getElementById('inValue'), inC=document.getElementById('inCpl');
+  var DAYS=30;
+  var inS=document.getElementById('inSpend'), inV=document.getElementById('inValue'), inC=document.getElementById('inCpl'), inB=document.getElementById('inBook'), inSh=document.getElementById('inShow'), inSg=document.getElementById('inSign');
   var chips=[].slice.call(document.querySelectorAll('[data-cpl]'));
   function num(el){ return +(el.value.replace(/[^\d.]/g,''))||0; }
   function $(n){ return '$'+Math.round(n).toLocaleString('en-CA'); }
   function set(k,t){ document.querySelectorAll('[data-o="'+k+'"]').forEach(function(el){ el.textContent=t; }); }
   function range(a,b,f){ return a===b ? f(a) : f(a)+'–'+f(b); }
   function calc(){
-    [inS,inV,inC].forEach(function(el){ el.style.width=(Math.max(1,el.value.length)+.5)+"ch"; });
+    [inS,inV,inC,inB,inSh,inSg].forEach(function(el){ el.style.width=(Math.max(1,el.value.length)+.5)+"ch"; });
     var day=num(inS), val=num(inV), cpl=num(inC)||35, mo=day*DAYS;
+    var BOOK=Math.min(100,num(inB))/100, SHOW=Math.min(100,num(inSh))/100, SIGN=Math.min(100,num(inSg))/100;
+    set('bookTxt',Math.round(BOOK*100)+'%'); set('showTxt',Math.round(SHOW*100)+'%'); set('signTxt',Math.round(SIGN*100)+'%');
     var leads=mo/cpl, booked=leads*BOOK, shows=booked*SHOW, signed=shows*SIGN;
     var lo=Math.floor(signed+1e-9), hi=Math.ceil(signed-1e-9);
     set('spendDay',$(day)); set('spendMo',$(mo)+' a month'); set('spendMoAmt',$(mo)); set('cplTxt',$(cpl));
@@ -629,7 +687,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
     for(var i=0;i<n;i++) h+='<i'+(i===n-1&&hi>signed+1e-9?' class="half"':'')+'></i>';
     f.innerHTML=h;
   }
-  [inS,inV,inC].forEach(function(el){
+  [inS,inV,inC,inB,inSh,inSg].forEach(function(el){
     el.addEventListener('input',calc);
     el.addEventListener('blur',function(){ var v=num(el); el.value=v?Math.round(v).toLocaleString('en-CA'):''; calc(); });
   });
@@ -664,6 +722,7 @@ ul.chk li::before{content:"✓  "; color:var(--grn); font-weight:900}
     ['Your consult',byName['Your consult']],
     ['The numbers',byName['The numbers']],
     ['Done for you',byName['Done for you']],
+    ['What happens next',byName['What happens next']],
     ['The whole flywheel',{x:-80,y:60,w:15980,h:4860}]
   ];
   var idx=0;
